@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Login</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #1e3a8a;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #162d66;
+    }
+    #dashboard {
+      display: none;
+    }
+    .logout {
+      margin-top: 20px;
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="login()">Login</button>
+</div>
+
+<div class="card" id="dashboard">
+  <h2>Welcome to Dashboard</h2>
+  <p>You are successfully logged in!</p>
+  <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<script>
+  function login() {
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value;
+
+    // Simple check (for demo purposes only)
+    if (user === "admin" && pass === "1234") {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+    } else {
+      alert("Invalid credentials! Try admin / 1234");
+    }
+  }
+
+  function logout() {
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+  }
+</script>
+
+</body>
+</html>
